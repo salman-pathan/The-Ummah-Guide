@@ -17,6 +17,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        free {
+            applicationId "com.codiodes.theummahguide.free"
+            versionName "1.0-free"
+        }
+        paid {
+            applicationId "com.codiodes.theummahguide.free"
+            versionName "1.0-paid"
+        }
+    }
 }
 
 dependencies {
