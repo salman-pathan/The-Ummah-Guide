@@ -1,11 +1,11 @@
-package com.codiodes.theummahguide;
+package com.codiodes.theummahguide.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.Window;
 import android.widget.TextView;
 
+import com.codiodes.theummahguide.R;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 

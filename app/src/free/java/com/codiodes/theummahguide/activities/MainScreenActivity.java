@@ -1,17 +1,33 @@
-package com.codiodes.theummahguide;
+package com.codiodes.theummahguide.activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.codiodes.theummahguide.R;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
 public class MainScreenActivity extends ActionBarActivity {
 
+    @InjectView(R.id.adView)
+    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+        ButterKnife.inject(this);
+
+        //  Load Advertisement
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
