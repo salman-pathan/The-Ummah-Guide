@@ -1,23 +1,39 @@
-package com.codiodes.theummahguide;
+package com.codiodes.theummahguide.activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.codiodes.theummahguide.R;
 
-public class MainActivity extends ActionBarActivity {
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
+
+public class MainScreenActivity extends ActionBarActivity {
+
+    @InjectView(R.id.adView)
+    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_screen);
+
+        ButterKnife.inject(this);
+
+        //  Load Advertisement
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
         return true;
     }
 
