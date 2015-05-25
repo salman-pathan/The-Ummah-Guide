@@ -24,7 +24,7 @@ android {
             versionName "1.0-free"
         }
         paid {
-            applicationId "com.codiodes.theummahguide.free"
+            applicationId "com.codiodes.theummahguide.paid"
             versionName "1.0-paid"
         }
     }

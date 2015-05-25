@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="white" type="color">#FFFFFF</item>
     <item name="dark_blue" type="color">#225378</item>
     <item name="dark_green" type="color">#1695A3</item>
     <item name="light_blue" type="color">#ACF0F2</item>
     <item name="off_white" type="color">#F3FFE2</item>
-    <item name="dark_orange" type="color">#EB7F00</item>
+    <!--<item name="dark_orange" type="color">#EB7F00</item>-->
 </resources>
