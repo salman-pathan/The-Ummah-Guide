@@ -1,23 +1,39 @@
 package com.codiodes.theummahguide.activities;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
 
 import com.codiodes.theummahguide.R;
-
+import com.codiodes.theummahguide.Utility.Utils;
+import com.codiodes.theummahguide.adapters.ViewPagerAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import it.neokree.materialtabs.MaterialTab;
+import it.neokree.materialtabs.MaterialTabHost;
+import it.neokree.materialtabs.MaterialTabListener;
 
 
-public class MainScreenActivity extends ActionBarActivity {
+public class MainScreenActivity extends ActionBarActivity implements MaterialTabListener {
 
     @InjectView(R.id.adView)
     AdView mAdView;
+
+    @InjectView(R.id.materialTabHost)
+    MaterialTabHost tabHost;
+
+    @InjectView(R.id.view_pager)
+    ViewPager viewPager;
+
+    @InjectView(R.id.toolbar)
+    Toolbar toolbar;
+
+    ViewPagerAdapter mViewPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,30 +41,44 @@ public class MainScreenActivity extends ActionBarActivity {
 
         ButterKnife.inject(this);
 
+        //  Change color of Action Bar.
+        Utils.stylizeActionBar(this);
+
+        //  Load Tab Bar
+        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(mViewPagerAdapter);
+
+        viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                tabHost.setSelectedNavigationItem(position);
+            }
+        });
+
+        for (int counter = 0; counter < mViewPagerAdapter.getCount(); counter++) {
+            tabHost.addTab(tabHost.newTab()
+            .setText(mViewPagerAdapter.getPageTitle(counter))
+            .setTabListener(this)
+            );
+        }
+
         //  Load Advertisement
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main_screen, menu);
-        return true;
+    public void onTabSelected(MaterialTab materialTab) {
+        viewPager.setCurrentItem(materialTab.getPosition());
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onTabReselected(MaterialTab materialTab) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+    }
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    public void onTabUnselected(MaterialTab materialTab) {
+
     }
 }
