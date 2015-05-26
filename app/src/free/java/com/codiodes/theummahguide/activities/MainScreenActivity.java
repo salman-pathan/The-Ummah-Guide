@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.codiodes.theummahguide.R;
 import com.codiodes.theummahguide.Utility.Utils;
 import com.codiodes.theummahguide.adapters.ViewPagerAdapter;
@@ -61,6 +62,12 @@ public class MainScreenActivity extends ActionBarActivity implements MaterialTab
             .setTabListener(this)
             );
         }
+
+        new MaterialDialog.Builder(this)
+                .title(R.string.dialog_title)
+                .content(R.string.dialog_content)
+                .positiveText(R.string.positive_buton_text)
+                .show();
 
         //  Load Advertisement
         AdRequest adRequest = new AdRequest.Builder().build();

@@ -4,10 +4,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_screen">The Ummah Guide</string>
+    <string name="dialog_title">Word of Wisdom</string>
+    <string name="dialog_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt pretium arcu ac euismod. Sed eu vulputate erat. Maecenas pharetra ex sit amet enim mollis, ut mattis urna scelerisque. Donec ipsum mi, maximus vitae nisi vitae, ultrices rhoncus erat. Etiam mattis sodales commodo. </string>
+    <string name="positive_buton_text">Yes</string>
+    <string name="negative_buton_text">No</string>
 
     <string-array name="tab_titles">
-        <item>Quran</item>
-        <item>Sunnah</item>
-        <item>Ijma</item>
+        <item>Bareli</item>
+        <item>Ahle Hadees</item>
     </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.codiodes.theummahguide.R;
+import com.codiodes.theummahguide.fragments.BareilyFragment;
 import com.codiodes.theummahguide.fragments.FragmentText;
 
 /**
@@ -13,9 +14,9 @@ import com.codiodes.theummahguide.fragments.FragmentText;
  */
 public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
-    public static final int TAB_COUNT = 3;
+    public static final int TAB_COUNT = 2;
     Context mContext;
-    String[] mTabTitles = {"Quran", "Sunnah", "Ijma"};
+    String[] mTabTitles = {"Bareily", "Ahle Hadees"};
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -23,7 +24,12 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return new FragmentText();
+        switch (position) {
+            case 0:
+                return new BareilyFragment();
+            default:
+                return new FragmentText();
+        }
     }
 
     @Override
